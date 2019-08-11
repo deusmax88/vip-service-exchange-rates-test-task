@@ -1,0 +1,22 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+$title = 'Курсы USD, EUR';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+
+<table class="table">
+    <tr>
+        <th>Код</th>
+        <th>Крус</th>
+        <th>Дата/Время</th>
+    </tr>
+    <?php foreach ($exchangeRates as $exchangeRate) : ?>
+        <tr>
+            <td><?= $this->escapeHtml($exchangeRate->currencyCode) ?></td>
+            <td><?= $this->escapeHtml($exchangeRate->rate) ?></td>
+            <td><?= $this->escapeHtml($exchangeRate->dateTime->format("Y-m-d H:i:s"))?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
